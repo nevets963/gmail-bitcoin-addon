@@ -14,6 +14,24 @@
 ## ToDo
 - [ ] Remove QR Code generation using API (use lib. instead)
 
+## Walkthrough/Demo
+
+### 1. Write email
+
+<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/1.png" style="max-width: 300px;">
+
+### 2. Enter amount of sats.
+
+<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/2.png" style="max-width: 300px;">
+
+### 3. Sent sats. from wallet
+
+<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/3.png" style="max-width: 300px;">
+
+### 3. Send email with embedded redeemable QR code
+
+<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/4.png" style="max-width: 300px;">
+
 ## Security Vulnerabilities
 
 If you discover a security vulnerability, please send an email to Steven Briscoe at [stevebriscoe123@gmail.com](mailto:stevebriscoe123@gmail.com). All security vulnerabilities will be promptly addressed.
