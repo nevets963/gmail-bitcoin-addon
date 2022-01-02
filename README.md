@@ -18,19 +18,19 @@
 
 ### 1. Write email
 
-<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/1.png" style="max-width: 300px;">
+![](https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/1.png =400x)
 
 ### 2. Enter amount of sats.
 
-<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/2.png" style="max-width: 300px;">
+![](https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/2.png =400x)
 
 ### 3. Sent sats. from wallet
 
-<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/3.png" style="max-width: 300px;">
+![](https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/3.png =400x)
 
 ### 3. Send email with embedded redeemable QR code
 
-<img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/4.png" style="max-width: 300px;">
+![](https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/4.png =400x)
 
 ## Security Vulnerabilities
 
