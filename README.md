@@ -11,7 +11,7 @@
 - [goqr.me](https://goqr.me) - to generate a QR code that gets embedded into the email
 - [bitfinex.com](https://bitfinex.com) - to get the current price per satoshi at the time the gift gets sent
 
-## ToDo
+## To Do
 - [ ] Remove QR Code generation using API (use lib. instead)
 
 ## Walkthrough/Demo
