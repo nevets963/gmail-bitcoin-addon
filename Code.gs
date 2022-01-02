@@ -1,6 +1,4 @@
-function onDefaultHomePageOpen() {
-  
-}
+const DEBUG_MODE = false;
 
 function onGmailInsertIntoEmail(e) {
   var invoice = JSON.parse(e.parameters.invoice);
@@ -15,7 +13,7 @@ function onGmailInsertIntoEmail(e) {
   {
     var statusResponse = UrlFetchApp.fetch('https://api.lightning.gifts/status/' + invoice.chargeId);
 
-    Logger.log(statusResponse);
+    if(DEBUG_MODE) Logger.log(statusResponse);
 
     var status = JSON.parse(statusResponse.getContentText())
 
@@ -26,6 +24,7 @@ function onGmailInsertIntoEmail(e) {
       break;
     }
 
+    // Wait 1 second before trying again...
     Utilities.sleep(1000);
 
     ++attempt;
@@ -40,7 +39,7 @@ function onGmailInsertIntoEmail(e) {
   var toCurrency = "usd";
   var usdResponse = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/btc' + toCurrency);
 
-  Logger.log(usdResponse);
+  if(DEBUG_MODE) Logger.log(usdResponse);
 
   var usd = JSON.parse(usdResponse.getContentText())
 
@@ -48,7 +47,7 @@ function onGmailInsertIntoEmail(e) {
 
   var usdValue = usdPerSat * sats;
 
-  Logger.log(invoice);
+  if(DEBUG_MODE) Logger.log(invoice);
 
   var orderId = invoice.orderId;
   var lnurl = invoice.lnurl;
@@ -58,30 +57,19 @@ function onGmailInsertIntoEmail(e) {
   var imageUrl = Utilities.formatString('https://api.qrserver.com/v1/create-qr-code/?margin=10&size=150x150&data=%s', encodeURIComponent(giftUrl));
   
   var htmlContent = "<table style='margin-top: 20px; background-color: #F7931A; border-radius: 6px;'>";
-
   htmlContent+= "<tbody>";
-
   htmlContent+= "<tr>";
-
   htmlContent+= "<td>"
-
   htmlContent+= '<a href="' + giftUrl + '"><img style="display: block; max-width: 150px; max-height: 150px; border-radius: 6px;" src="'
       + imageUrl + '"/></a>'
-
   htmlContent+= "</td>"
-
   htmlContent+= "<td style='padding: 10px;'>"
-
   htmlContent+= "<p style='margin: 0px; margin-bottom: 10px; color: #000000;'>Here are <strong>" + sats + " &#8383; satoshis</strong>.</p>"
   htmlContent+= "<p style='margin: 0px; margin-bottom: 10px; color: #000000;'>Scan the QR code with a Bitcoin wallet to receive them.</p>"
   htmlContent+= "<p style='margin: 0px; color: #000000;'>Estimated value at the time sent: <strong>$" + usdValue.toFixed(2) + "</strong></p>"
-
   htmlContent+= "</td>"
-
   htmlContent+= "</tr>";
-
   htmlContent+= "</tbody>";
-
   htmlContent+= "</table>";
   
   var response = CardService.newUpdateDraftActionResponseBuilder()
@@ -92,11 +80,7 @@ function onGmailInsertIntoEmail(e) {
 }
 
 function onGmailCreateGift(e) {
-  console.log(e);
-
   var sats = parseInt(e.formInputs.satsInput[0])
-
-  Logger.log(sats)
 
   var dataToPost = {
     amount: sats
@@ -110,7 +94,7 @@ function onGmailCreateGift(e) {
 
   var createResponse = UrlFetchApp.fetch('https://api.lightning.gifts/create', options);
 
-  Logger.log(createResponse);
+  if(DEBUG_MODE) Logger.log(createResponse);
 
   var invoice = JSON.parse(createResponse.getContentText())
 
@@ -147,14 +131,12 @@ function onGmailCreateGift(e) {
 }
 
 function onGmailCompose(e) {
-  console.log(e);
-
   var header = CardService.newCardHeader()
       .setTitle('Enter how many satoshis to send');
   // Create text input for entering amount (in sats)
   var input = CardService.newTextInput()
       .setFieldName('satsInput')
-      .setTitle('Amount (sats)');
+      .setTitle('Amount (satoshis)');
   // Create a button that creates a gift
   var action = CardService.newAction()
       .setFunctionName('onGmailCreateGift');
@@ -172,4 +154,8 @@ function onGmailCompose(e) {
       .setHeader(header)
       .addSection(section);
   return card.build();
+}
+
+function onDefaultHomePageOpen() {
+  
 }
