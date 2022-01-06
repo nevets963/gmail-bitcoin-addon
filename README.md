@@ -20,11 +20,11 @@
 
 <img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/1.png" width="400">
 
-### 2. Enter amount of sats.
+### 2. Enter amount of satoshis
 
 <img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/2.png" width="400">
 
-### 3. Sent sats. from wallet
+### 3. Scan QR Code using wallet and send satoshis
 
 <img src="https://github.com/nevets963/gmail-bitcoin-addon/raw/main/demo/3.png" width="400">
 
