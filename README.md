@@ -38,4 +38,4 @@ If you discover a security vulnerability, please send an email to Steven Briscoe
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://github.com/nevets963/gmail-bitcoin-addon/blob/main/LICENSE).
+The Gmail Bitcoin Addon is open-sourced software licensed under the [MIT license](https://github.com/nevets963/gmail-bitcoin-addon/blob/main/LICENSE).
